@@ -23,7 +23,7 @@ npm test
 Using it is realy simple, just import the convert function, and use it
 
 ```js
-const { convert } = require('../pronumjs');
+const { convert } = require('ronumjs');
 
 console.log(convert(164)); // 'مئة و أربع وستون'
 console.log(convert(456295)); // 'أربع مئة و ست وخمسون ألف و مئتان و خمس وتسعون'
