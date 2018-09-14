@@ -1,6 +1,6 @@
 {
   "name": "pronumjs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A small util library, to convert numbers to the written equivalent, currently support Arabic, but later may support other languages.",
   "main": "index.js",
   "keywords": [
