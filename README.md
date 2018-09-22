@@ -75,6 +75,11 @@ Will give the following result:
     at bootstrap_node.js:617:3
 ```
 
+## Todo:
+- Support English language
+- Support gender (in Arabic language)
+- Add proper commenting to the code
+
 ## Authors
 
 * **Wael Hasan** - [waelhasan](https://github.com/waelhasan)
