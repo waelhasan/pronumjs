@@ -39,7 +39,7 @@ console.log(123456789123123876983273); // logs: 1.2345678912312388e+23
 ```
 #### YOU ARE ENCOURAGED TO USE THE STRING FORMAT ALL THE TIME
 
-But notice that it will throw an error if you:
+Also notice that it will throw an error if you:
 - didn't pass any value
 - passed a non numeric value
 
@@ -74,7 +74,7 @@ Will give the following result:
     at bootstrap_node.js:617:3
 ```
 - Also you can pass an options object as a second parameter, which can have the following attributes:
-1. language: to choose from the available supported languages (currently "ar" for Arabic, and "en" for English)
+1. language: to choose from the available supported languages (currently "ar" for Arabic, and "en" for English. with "ar" as the default)
 ```js
 console.log(convert(1245, {
     language: 'ar',
@@ -134,8 +134,8 @@ console.log(convert(7563982, {
 
 ## Todo:
 - Support gender (in Arabic language)
-- Add proper commenting to the code
 - Support floating point numbers
+- Add proper commenting to the code
 
 ## Authors
 
