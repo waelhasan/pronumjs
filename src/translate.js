@@ -2,10 +2,13 @@ const translateUnit = require('./translateUnit');
 const literals = require('./literals.json');
 
 let translate = (number) => {
-    if (typeof number !== 'number')
-        throw new Error('Expected a number, but found something else.')
+    if (typeof number !== 'number' && typeof number !== 'string')
+        throw new Error('Expected a number or a stringified number, but found something else.')
 
     let strNum = number.toString();
+    if (isNaN(strNum))
+        throw new Error('Given value is not a valid numeric value');
+
     let result = '';
 
     // add 0's if we need to make the number have units of 3 digits each
@@ -29,6 +32,7 @@ let translate = (number) => {
             currentUnit = `${translateUnit(currentUnit)}`;
         }
         else {
+            unit = unit.toString();
             // translate the current unit
             let currentUnitInt = parseInt(currentUnit);
 
