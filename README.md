@@ -79,6 +79,7 @@ Will give the following result:
 - Support English language
 - Support gender (in Arabic language)
 - Add proper commenting to the code
+- Support floating point numbers
 
 ## Authors
 
