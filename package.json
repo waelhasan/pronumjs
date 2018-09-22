@@ -1,7 +1,7 @@
 {
   "name": "pronumjs",
-  "version": "1.0.0",
-  "description": "A small util library, to convert numbers to the written equivalent, currently support Arabic, but later may support other languages.",
+  "version": "1.0.1",
+  "description": "A small javascript util library, to convert integer numbers to their written equivalent, currently supports Arabic and English language, and may support other languages",
   "main": "index.js",
   "keywords": [
     "tafqeet",
