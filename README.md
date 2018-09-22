@@ -1,6 +1,6 @@
 # pronumjs
 
-A small javascript util library, to convert numbers to their written equivalent, currently only supports Arabic language, but later may support other languages
+A small javascript util library, to convert integer numbers to their written equivalent, currently only supports Arabic language, but later may support other languages
 
 
 ### Installing
