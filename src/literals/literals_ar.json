@@ -85,6 +85,10 @@
     "1e+63": "فجنتليون",
     "2e+63": "فجنتليونان",
     "3.0000000000000004e+63": "فجنتليونات",
-    
-    "and": "و"
+    "separator": "و",
+    "unitsSeparator": "و",
+    "pronounceOne": false,
+    "pronounceTwo": false,
+    "separateOnesAndTens": true,
+    "onesBeforeHundreds": true
 }

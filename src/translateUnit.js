@@ -1,6 +1,4 @@
-const literals = require('./literals.json');
-
-const translateUnit = (number) => {
+const translateUnit = (number, literals) => {
     number = parseInt(number);
     if (number > 999)
         throw new Error('This function work only on numbers with 3 digits');
@@ -21,11 +19,17 @@ const translateUnit = (number) => {
     else if (number < 100) {
         tens = literals[parseInt(strNum[0]) * 10];
         ones = literals[parseInt(strNum[1])];
-        return `${ones} ${literals.and} ${tens}`;
+
+        const sep = literals.separateOnesAndTens ? literals.separator + ' ' : '';
+        return literals.onesBeforeHundreds ?
+            `${ones} ${sep}${tens}` :
+            `${tens} ${sep}${ones}`;
     }
     else {
         hundreds = parseInt(strNum[0]);
-        if (hundreds < 3)
+        if (hundreds === 1)
+            hundreds = (literals.pronounceOne ? literals[1] + ' ' : '') + literals[hundreds * 100];
+        else if (hundreds === 2)
             hundreds = literals[hundreds * 100];
         else
             hundreds = `${literals[hundreds]} ${literals[100]}`;
@@ -37,13 +41,18 @@ const translateUnit = (number) => {
             return `${hundreds}`;
         }
         if (ones + tens < 13) {
-            return `${hundreds} ${literals.and} ${literals[ones + tens]}`;
+            return `${hundreds} ${literals.separator} ${literals[ones + tens]}`;
         }
         else {
             tens = literals[parseInt(strNum[1]) * 10];
             ones = literals[parseInt(strNum[2])];
 
-            return `${hundreds} ${literals.and} ${ones}${tens != '' ? ' ' + literals.and + tens : ''}`;
+            const sep = literals.separateOnesAndTens ? literals.separator + '' : '';
+            return `${hundreds} ${literals.separator} ` +
+                (literals.onesBeforeHundreds ?
+                    `${ones} ${sep}${tens}` :
+                    `${tens} ${sep}${ones}`);
+            // return `${hundreds} ${literals.separator} ${ones}${tens != '' ? ' ' + literals.separator + tens : ''}`;
         }
     }
 };

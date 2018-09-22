@@ -1,14 +1,6 @@
 const translateUnit = require('./translateUnit');
-const literals = require('./literals.json');
 
-let translate = (number) => {
-    if (typeof number !== 'number' && typeof number !== 'string')
-        throw new Error('Expected a number or a stringified number, but found something else.')
-
-    let strNum = number.toString();
-    if (isNaN(strNum))
-        throw new Error('Given value is not a valid numeric value');
-
+let translate = (strNum, literals) => {
     let result = '';
 
     // add 0's if we need to make the number have units of 3 digits each
@@ -29,7 +21,7 @@ let translate = (number) => {
         let unit = Math.pow(10, strNum.length - start - 1);
 
         if (unit < 1000) {
-            currentUnit = `${translateUnit(currentUnit)}`;
+            currentUnit = `${translateUnit(currentUnit, literals)}`;
         }
         else {
             unit = unit.toString();
@@ -37,17 +29,17 @@ let translate = (number) => {
             let currentUnitInt = parseInt(currentUnit);
 
             if (currentUnitInt === 1)
-                currentUnit = literals[unit];
+                currentUnit = (literals.pronounceOne ? literals[1] + ' ' : '') + literals[unit];
             else if (currentUnitInt === 2)
                 currentUnit = literals[unit * 2];
             else if (currentUnitInt < 11)
-                currentUnit = `${translateUnit(currentUnit)} ${literals[unit * 3]}`;
+                currentUnit = `${translateUnit(currentUnit, literals)} ${literals[unit * 3]}`;
             else
-                currentUnit = `${translateUnit(currentUnit)} ${literals[unit]}`;
+                currentUnit = `${translateUnit(currentUnit, literals)} ${literals[unit]}`;
         }
 
         // compose the final result
-        result = result === '' ? '' : ` ${literals.and} ${result}`;
+        result = result === '' ? '' : ` ${literals.unitsSeparator} ${result}`;
         result = `${currentUnit}${result}`;
     }
 
