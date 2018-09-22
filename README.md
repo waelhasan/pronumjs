@@ -24,7 +24,7 @@ npm test
 
 ### Usage
 
-Using it is realy simple, just import the convert function, and use it
+Using it is realy simple, just import the convert function, and use it, by passing the number as a number or a string:
 
 ```js
 const { convert } = require('pronumjs');
@@ -32,7 +32,13 @@ const { convert } = require('pronumjs');
 console.log(convert(164)); // 'مئة و أربع وستون'
 console.log(convert(456295)); // 'أربع مئة و ست وخمسون ألف و مئتان و خمس وتسعون'
 console.log(convert(86752985)); // 'ست و ثمانون مليون و سبع مئة و اثنان وخمسون ألف و تسع مئة و خمس وثمانون'
+console.log(convert('123456789123')); //'مئة و ثلاث وعشرون بليون و أربع مئة و ست وخمسون مليون و سبع مئة و تسع وثمانون ألف و مئة و ثلاث وعشرون'
 ```
+Notice that we use the string form of the numbers in the situations where the numbers will change the format in the runtime, e.g. the number 123456789123123876983273 will be converted to the form "1.2345678912312388e+23", which will be a problem for the algorithm (at leat currently)
+```js
+console.log(123456789123123876983273); // logs: 1.2345678912312388e+23
+```
+#### YOU ARE ENCOURAGED TO USE THE STRING FORMAT ALL THE TIME
 
 But notice that it will throw an error if you:
 - didn't pass any value
@@ -56,7 +62,7 @@ catch (error) {
 
 Will give the following result:
 ```
-[X] ERROR:  Error: Expected a number, but found something else.
+[X] ERROR:  Error: Expected a number or a stringified number, but found something else.
     at translate (/home/wael/dev/pronumjs/src/translate.js:6:15)
     at Object.<anonymous> (/home/wael/dev/pronumjs/test.js:5:17)
     at Module._compile (module.js:660:30)
