@@ -92,7 +92,7 @@
     "1e+63": "vigintillion",
     "2e+63": "two vigintillion",
     "3.0000000000000004e+63": "vigintillions",
-    "separator": "",
+    "separator": "and",
     "unitsSeparator": "and",
     "pronounceOne": true,
     "pronounceTwo": true,

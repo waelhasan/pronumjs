@@ -15,9 +15,11 @@ const convert = (number, options) => {
 
     options = { ...defaultOptions, ...options };
 
-    const literals = _literals[options.language];
-    literals.separator = options.separator || literals.separator;
-    literals.unitsSeparator = options.unitsSeparator || literals.unitsSeparator;
+    const literals = {
+        ..._literals[options.language],
+        separator: options.separator || _literals[options.language].separator,
+        unitsSeparator: options.unitsSeparator || _literals[options.language].unitsSeparator
+    };
 
     return translate(strNum, literals);
 }
