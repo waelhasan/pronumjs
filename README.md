@@ -135,6 +135,7 @@ console.log(convert(7563982, {
 ## Todo:
 - Support gender (in Arabic language)
 - Support floating point numbers
+- Support RTL pronunciation (old Arabic pronunciation, e.g. 123 will be ثلاث و عشرون و مئة)
 - Add proper commenting to the code
 
 ## Authors
